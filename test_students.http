@@ -1,0 +1,14 @@
+### Listar estudiantes
+GET http://127.0.0.1:5000/students
+
+### Crear un estudiante
+POST http://127.0.0.1:5000/students
+Content-Type: application/json
+
+{
+  "name": "María Pérez",
+  "age": 4,
+  "group": "Sala de 3 años A",
+  "allergies": "Ninguna",
+  "emergency_contact": "Juan Pérez - 123456789"
+}
