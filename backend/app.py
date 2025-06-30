@@ -1,8 +1,11 @@
 from flask import Flask, jsonify, request, abort
+from flask_cors import CORS
 from backend.models import create_tables, get_connection
 from backend.routes_attendance import attendance_bp
+from backend.routes_development import development_bp
 
 app = Flask(__name__)
+CORS(app)
 create_tables()
 
 @app.route('/')
@@ -105,8 +108,9 @@ def delete_student(student_id):
     # Respuesta sin contenido (204 No Content)
     return '', 204
 
-# registra las rutas de attendance
+# Registrar blueprints (una sola vez cada uno)
 app.register_blueprint(attendance_bp)
+app.register_blueprint(development_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)

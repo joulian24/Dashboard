@@ -53,3 +53,34 @@ Content-Type: application/json
 
 ### Eliminar asistencia con ID 1
 DELETE http://127.0.0.1:5000/attendance/1
+
+### Listar todos los cuestionarios
+GET http://127.0.0.1:5000/development_checklists
+
+### Crear un cuestionario
+POST http://127.0.0.1:5000/development_checklists
+Content-Type: application/json
+
+{
+  "student_id": 1,
+  "date": "2025-06-30",
+  "motor_skills": 4,
+  "language_skills": 3,
+  "social_skills": 5,
+  "emotional_state": 4,
+  "notes": "Buen progreso general"
+}
+
+### Actualizar un cuestionario
+PUT http://127.0.0.1:5000/development_checklists/1
+Content-Type: application/json
+
+{
+  "student_id": 1,
+  "date": "2025-06-30",
+  "motor_skills": 5,
+  "language_skills": 5,
+  "social_skills": 5,
+  "emotional_state": 5,
+  "notes": "Ha mejorado notablemente"
+}

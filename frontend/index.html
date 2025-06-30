@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KinderTrack Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+    <a class="navbar-brand" href="#">KinderTrack</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="#students">Estudiantes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#attendance">Asistencias</a></li>
+        <li class="nav-item"><a class="nav-link" href="#checklists">Cuestionarios</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container my-4">
+    <!-- Sección Estudiantes -->
+    <section id="students">
+      <h2>Estudiantes</h2>
+      <form id="studentForm" class="row g-2 mb-3">
+    <div class="col-md-3">
+      <input type="text" class="form-control" id="nameInput" placeholder="Nombre" required>
+    </div>
+    <div class="col-md-1">
+      <input type="number" class="form-control" id="ageInput" placeholder="Edad" required>
+    </div>
+    <div class="col-md-3">
+      <input type="text" class="form-control" id="groupInput" placeholder="Grupo" required>
+    </div>
+    <div class="col-md-2">
+      <input type="text" class="form-control" id="allergiesInput" placeholder="Alergias">
+    </div>
+    <div class="col-md-3">
+      <input type="text" class="form-control" id="emergencyInput" placeholder="Contacto emergencia">
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Crear estudiante</button>
+    </div>
+  </form>
+
+  <table class="table" id="studentsTable">
+      <table class="table" id="studentsTable">
+        <thead><tr><th>ID</th><th>Nombre</th><th>Edad</th><th>Grupo</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Sección Asistencias -->
+    <section id="attendance" class="mt-5">
+      <h2>Asistencias</h2>
+
+      <!-- Formulario para crear asistencia -->
+      <form id="attendanceForm" class="row g-2 mb-3">
+    <div class="col-md-2">
+      <input type="number" class="form-control" id="attStudentInput" placeholder="Student ID" required>
+    </div>
+    <div class="col-md-3">
+      <input type="date" class="form-control" id="attDateInput" required>
+    </div>
+    <div class="col-md-3">
+      <select id="attStatusInput" class="form-select" required>
+        <option value="">Estado</option>
+        <option value="Presente">Presente</option>
+        <option value="Ausente">Ausente</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary">Marcar asistencia</button>
+    </div>
+  </form>
+
+  <table class="table" id="attendanceTable">
+
+      <table class="table" id="attendanceTable">
+        <thead><tr><th>ID</th><th>Estudiante</th><th>Fecha</th><th>Estado</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Sección Cuestionarios -->
+    <section id="checklists" class="mt-5">
+      <h2>Cuestionarios</h2>
+
+       <!-- Formulario para crear cuestionario -->
+  <form id="checklistForm" class="row g-2 mb-3">
+    <div class="col-md-2">
+      <input type="number" class="form-control" id="chkStudentInput" placeholder="Student ID" required>
+    </div>
+    <div class="col-md-2">
+      <input type="date" class="form-control" id="chkDateInput" required>
+    </div>
+    <div class="col-md-1">
+      <input type="number" min="1" max="5" class="form-control" id="chkMotorInput" placeholder="Motor" required>
+    </div>
+    <div class="col-md-1">
+      <input type="number" min="1" max="5" class="form-control" id="chkLangInput" placeholder="Leng." required>
+    </div>
+    <div class="col-md-1">
+      <input type="number" min="1" max="5" class="form-control" id="chkSocialInput" placeholder="Social" required>
+    </div>
+    <div class="col-md-1">
+      <input type="number" min="1" max="5" class="form-control" id="chkEmoInput" placeholder="Emoc." required>
+    </div>
+    <div class="col-md-2">
+      <input type="text" class="form-control" id="chkNotesInput" placeholder="Notas">
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary">Crear cuestionario</button>
+    </div>
+  </form>
+
+  <table class="table" id="checklistsTable"> 
+
+      <table class="table" id="checklistsTable">
+        <thead><tr><th>ID</th><th>Estudiante</th><th>Fecha</th><th>Motor</th><th>Lenguaje</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="main.js"></script>
+
+<!-- Gráfica de Asistencias -->
+<section class="mt-5">
+  <h2>Gráfica de Asistencias</h2>
+  <canvas id="attendanceChart" width="400" height="200"></canvas>
+</section>
+
+<!-- Gráfica de Promedios de Habilidades -->
+<section class="mt-5 mb-5">
+  <h2>Promedio de Habilidades</h2>
+  <canvas id="skillsChart" width="400" height="200"></canvas>
+</section>
+
+<!-- Importar Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="main.js"></script>
+
+
+</body>
+</html>
