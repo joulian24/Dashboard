@@ -12,3 +12,44 @@ Content-Type: application/json
   "allergies": "Ninguna",
   "emergency_contact": "Juan Pérez - 123456789"
 }
+
+### Actualizar estudiante (cambia 1 por el ID que creaste)
+PUT http://127.0.0.1:5000/students/1
+Content-Type: application/json
+
+{
+  "name": "María Pérez Gómez",
+  "age": 5,
+  "group": "Sala de 3 años B",
+  "allergies": "Polvo",
+  "emergency_contact": "Ana Gómez - 987654321"
+}
+
+### Eliminar estudiante con ID 1
+DELETE http://127.0.0.1:5000/students/1
+
+### Crear registro de asistencia
+POST http://127.0.0.1:5000/attendance
+Content-Type: application/json
+
+{
+  "student_id": 1,
+  "date": "2025-06-29",
+  "status": "Presente"
+}
+
+### Listar asistencias
+GET http://127.0.0.1:5000/attendance
+
+### Actualizar asistencia con ID 1
+PUT http://127.0.0.1:5000/attendance/1
+Content-Type: application/json
+
+{
+  "student_id": 1,
+  "date": "2025-06-30",
+  "status": "Ausente"
+}
+
+### Eliminar asistencia con ID 1
+DELETE http://127.0.0.1:5000/attendance/1
